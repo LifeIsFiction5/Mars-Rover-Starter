@@ -2,13 +2,16 @@ const Command = require("./command");
 
 class Message {
    constructor(name, commands) {
-      this.name = "";
-      this.commands = [];
+      if (!name) {
+         throw Error ("Name required.")
+      };
+      this.name = name;
+      this.commands = commands;
    }
 }
 
-let commands = [new Command('MODE_CHANGE', 'LOW POWER'), new Command('STATUS CHECK')]
+let messageTest = new Message("test name", ['MODE_CHANGE', 'LOW POWER']);
 
-let message = new Message('Test message with two commands', commands);
+
 
 module.exports = Message;

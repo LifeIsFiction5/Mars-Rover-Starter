@@ -9,8 +9,7 @@ class Command {
  
  }
  
-let modeCommand = new Command('MODE_CHANGE', 'LOW_POWER');
-let moveCommand = new Command('MOVE', 12000);
+//MODE_CHANGE, MOVE, STATUS_CHECK
 
 const commandTest = new Command("test commandType", "test value");
 
