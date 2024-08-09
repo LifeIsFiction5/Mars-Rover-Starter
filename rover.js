@@ -1,5 +1,5 @@
-const Command = require("./command");
-const Message = require("./message");
+const Command = require("./command.js");
+const Message = require("./message.js");
 
 class Rover {
    constructor(position) {
@@ -39,18 +39,5 @@ class Rover {
       return output;
    }
 }
-
-// const commands1 = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('MOVE', 1111111)];
-// const commands2 = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
-// const commands3 = [new Command("MOVE", ), new Command("STATUS_CHECK")];
-// const message = new Message("Hi I'm the test message", commands2)
-// const testRover = new Rover(98382)
-// const roverReceiveMessage = testRover.receiveMessage(message)
-// const roverStatus = roverReceiveMessage.results
-
-// console.log(message)
-// console.log(roverReceiveMessage)
-// console.log(roverStatus.results)
-// console.log('im the results', testRover.output)
 
 module.exports = Rover;

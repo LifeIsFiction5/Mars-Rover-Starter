@@ -9,15 +9,18 @@ const Command = require('../command.js');
 describe("Rover class", function() {
 
   // TEST 7
-
   it("constructor sets position and default values for mode and generatorWatts", function () {
     let rover = new Rover('test generator watts');
     expect(rover.generatorWatts).toEqual(110);
   });
 
   // TEST 8
-  it("responsse returned by receiveMessage contains the name of the message", function () {
-    
+  it("response returned by receiveMessage contains the name of the message", function () {
+    let commands = [new Commmand('MOVE', 20)];
+    let message = new Message('Test message name', commands);
+    let rover = new Rover(100);
+    let response = rover.receiveMessage(message);
+    expect(response.message).toBe('Test message name');
   });
 
   // TEST 9
