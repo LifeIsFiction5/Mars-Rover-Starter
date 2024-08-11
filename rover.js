@@ -14,30 +14,36 @@ class Rover {
       let output = {
          'message': message.name,
          'results': []
-      }
+      };
+
       for (let i=0; i < message.commands.length; i++) {
-         const messageObject = message.commands[i]
-            if (messageObject.commandType === 'MOVE' && this.mode === 'NORMAL') {
-               this.position = messageObject.value
-               output.results.push({completed: true})
-            } else { output.results.push({completed: false})
+         const messageObject = message.commands[i];
+         let result = { completed: false };
+         
+         if (messageObject.commandType === 'MOVE') {
+            if (this.mode === 'NORMAL') {
+                this.position = messageObject.value;
+                result.completed = true;
             }
-            if (messageObject.commandType === 'STATUS_CHECK') {
-               output.results.push(
-                  {completed: true,
-                   roverStatus: {
-                     mode: this.mode,
-                     generatorWatts: this.generatorWatts,
-                     position: this.position
-                  }});
-            if (messageObject.commandType === 'MODE_CHANGE') {
-               this.mode = messageObject.value;
-               output.results.push({completed: true});
-            }
-            }
-      }
-      return output;
-   }
+        } else if (messageObject.commandType === 'STATUS_CHECK') {
+            result = {
+                completed: true,
+                roverStatus: {
+                    mode: this.mode,
+                    generatorWatts: this.generatorWatts,
+                    position: this.position
+                }
+            };
+        } else if (messageObject.commandType === 'MODE_CHANGE') {
+            this.mode = messageObject.value;
+            result.completed = true;
+        }
+
+        output.results.push(result);
+    }
+
+    return output;
+}
 }
 
 module.exports = Rover;

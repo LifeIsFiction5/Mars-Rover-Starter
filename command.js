@@ -8,8 +8,6 @@ class Command {
    }
  
  }
- 
-//MODE_CHANGE, MOVE, STATUS_CHECK
 
 const commandTest = new Command("test commandType", "test value");
 

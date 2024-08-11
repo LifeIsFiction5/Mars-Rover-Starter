@@ -22,5 +22,6 @@ describe("Command class", function() {
     expect(command.value).toBe('test value');
   });
 
+
 });
 
