@@ -9,6 +9,4 @@ class Command {
  
  }
 
-const commandTest = new Command("test commandType", "test value");
-
  module.exports = Command;

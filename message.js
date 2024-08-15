@@ -10,8 +10,4 @@ class Message {
    }
 }
 
-let messageTest = new Message("test name", ['MODE_CHANGE', 'LOW POWER']);
-
-
-
 module.exports = Message;
